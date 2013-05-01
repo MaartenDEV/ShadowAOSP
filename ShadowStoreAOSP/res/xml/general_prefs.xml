@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+ <PreferenceCategory
+   android:summary="Username and password information"
+   android:title="System" >
+   
+     <CheckBoxPreference
+         android:title="Arrows"
+         android:summary="Enable or disable arrows on the HTC Keyboard"
+         android:key="arrows" />
+     
+     <CheckBoxPreference
+         android:title="Bootupsound"
+         android:summary="The sound you hear on boot"
+         android:key="bootsound" />
+  
+ </PreferenceCategory>
+ 
+ 
+ 
+ <PreferenceCategory
+     android:title="Shadow Store" >
+     
+     <CheckBoxPreference
+         android:title="Notification"
+         android:summary="Statusbar notification for quick access"
+         android:key="not" />
+
+          
+ </PreferenceCategory>
+ 
+<PreferenceCategory
+    android:title="More coming soon!" >
+    
+    <Preference
+        android:title="Coming soon"
+        android:summary="More will come soon, please request features!"
+        android:key="coming_soon" />
+    
+</PreferenceCategory>
+ 
+</PreferenceScreen>

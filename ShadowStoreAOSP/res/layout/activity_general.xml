@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".GeneralActivity" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:text="Keyboard"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/Button03"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Button02"
+        android:layout_alignBottom="@+id/Button02"
+        android:layout_toRightOf="@+id/togglebutton"
+        android:background="@drawable/button"
+        android:focusable="true"
+        android:clickable="true"
+        android:onClick="disableBoot"
+        android:text="Disable" />
+
+    <Button
+        android:id="@+id/Button01"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_margin="0dp"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/button"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="runArrowKeyboard"
+        android:text="HTC Keyboard With Arrows" />
+
+    <Button
+        android:id="@+id/button2"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Button01"
+        android:layout_alignBottom="@+id/Button01"
+        android:layout_margin="0dp"
+        android:layout_toLeftOf="@+id/Button01"
+        android:background="@drawable/button"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="runStockKeyboard"
+        android:text="Stock HTC Keyboard" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Button01"
+        android:layout_centerHorizontal="true"
+        android:text="Bootsound"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button2"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="enableBoot"
+        android:text="Enable" />
+
+    <Button
+        android:id="@+id/switch1"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/togglebutton"
+        android:layout_alignBottom="@+id/togglebutton"
+        android:layout_alignLeft="@+id/Button01"
+        android:background="@drawable/button"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="disableNot"
+        android:text="Disable" />
+
+    <Button
+        android:id="@+id/togglebutton"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="73dp"
+        android:layout_toLeftOf="@+id/switch1"
+        android:background="@drawable/button"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="enableNot"
+        android:text="Enable" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/switch1"
+        android:layout_centerHorizontal="true"
+        android:text="Notification"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
+

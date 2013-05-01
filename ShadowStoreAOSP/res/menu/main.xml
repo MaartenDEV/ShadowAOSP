@@ -1,0 +1,63 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    
+    
+    
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Refresh"
+        android:icon="@+drawable/refresh"/>
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="About"
+        android:icon="@+drawable/about"/>
+    
+    <item
+        android:id="@+id/appreciation"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Appreciation" 
+        android:icon="@+drawable/appreciation"/>
+    
+    <item
+        android:id="@+id/devs"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Team members"/>
+    
+    
+    
+    <item
+        android:id="@+id/files"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Downloaded files"/>
+    
+    <item
+        android:id="@+id/personalize"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Personalize"/>
+    <item
+        android:id="@+id/prefs"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Preferences"/>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</menu>

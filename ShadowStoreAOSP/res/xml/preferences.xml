@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+ <PreferenceCategory
+   android:summary="Username and password information"
+   android:title="User information" >
+  <EditTextPreference
+     android:key="username"
+     android:summary="This will be set as actionbar name"
+     android:title="Username" />
+ </PreferenceCategory>
+ 
+ <PreferenceCategory
+   android:summary="Username and password information"
+   android:title="Main app" >
+  
+     
+     
+  <CheckBoxPreference
+      android:title="Scrollbars"
+      android:summary="Enable/disable scrollbars"
+      android:key="scrollbars" />
+  
+  <CheckBoxPreference
+      android:title="News items"
+      android:summary="Set news item clickability"
+      android:key="clickable" />
+  
+  
+ </PreferenceCategory>
+ 
+ <PreferenceCategory
+     android:title="More coming soon!">
+ </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.maartenxda.shadowaosp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="9" />
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ENABLE_KEYGUARD" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.maartenxda.shadowaosp.SectionListActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.maartenxda.shadowaosp.SectionDetailActivity"
+            android:label="DetailActivity"
+            android:parentActivityName=".SectionListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SectionListActivity" />
+        </activity>
+        <activity
+            android:name="com.maartenxda.shadowaosp.News"
+            android:configChanges="orientation"
+            android:label="News"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.maartenxda.shadowaosp.News" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.maartenxda.shadowaosp.AndroidXMLParsingActivity"
+            android:label="Parsing"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.maartenxda.shadowaosp.AndroidXMLParsingActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.maartenxda.shadowaosp.Skins"
+            android:label="Skins"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.maartenxda.shadowaosp.Skins" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.maartenxda.shadowaosp.Preferences"
+            android:label="Prefs"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.maartenxda.shadowaosp.Preferences" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.maartenxda.shadow.SitesList"
+            android:label="SitesList" >
+        </activity>
+        <activity
+            android:name="com.maartenxda.shadow.MyXMLHandler"
+            android:label="SSSSS" >
+        </activity>
+        <activity
+            android:label="Single Menu Item"
+            android:name=".SingleMenuItemActivity" >
+        </activity>
+        <activity
+            android:label="StatusbarActivity"
+            android:name="com.maartenxda.shadowaosp.StatusbarActivity" >
+        </activity>
+        <activity
+            android:label="AdvancedActivity"
+            android:name="com.maartenxda.shadowaosp.AdvancedActivity" >
+            </activity>
+        <activity
+            android:label="DevelopersActivity"
+            android:name="com.maartenxda.shadowaosp.DevelopersActivity" >
+        </activity>
+        <activity
+            android:label="GeneralActivity"
+            android:name="com.maartenxda.shadowaosp.GeneralActivity" >
+        </activity>
+        <activity
+            android:label="RosieActivity"
+            android:name="com.maartenxda.shadowaosp.RosieActivity" >
+        </activity>
+        <activity
+            android:label="RosiePreferences"
+            android:name="com.maartenxda.shadowaosp.RosiePreferences" >
+        </activity>
+        
+		<activity
+            android:label="PreferencesActivity"
+            android:name="com.maartenxda.shadowaosp.PreferencesActivity" >
+        </activity>
+
+        
+    </application>
+
+</manifest>

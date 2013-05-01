@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+ <PreferenceCategory
+   android:summary="Username and password information"
+   android:title="Launcher" >
+  
+     
+<Preference
+    android:title="Mount system"
+    android:key="mount_system"
+    android:summary="Mount /system partition as R/W" />
+
+</PreferenceCategory>
+  <PreferenceCategory
+      android:title="Custom font" >
+
+ <Preference
+     android:title="Install custom font"
+     android:key="custom_font"
+     android:summary="Place your font files in /sdcard/Shadow/fonts" />
+
+ </PreferenceCategory>
+ 
+ <PreferenceCategory
+     android:title="Fonts">
+ 
+     <Preference
+         android:title="Android 4.2 font"
+         android:summary="Android 4.2 font from the Nexus 4"
+         android:key="android42" />
+     
+     <Preference
+         android:title="Ubuntu font"
+         android:summary="Ubuntu font taken from the Google Nexus" 
+         android:key="ubuntu" />
+     
+     
+ </PreferenceCategory> 
+  
+ <PreferenceCategory
+     android:title="More coming soon!">
+ </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+ <PreferenceCategory
+   android:summary="Username and password information"
+   android:title="User information" >
+  <EditTextPreference
+     android:key="username"
+     android:summary="This will be set as actionbar name"
+     android:title="Username" />
+ </PreferenceCategory>
+ 
+ <PreferenceCategory
+   android:summary="Username and password information"
+   android:title="Launcher" >
+  
+     
+     
+  <ListPreference
+     android:entries="@array/listOptions"
+     android:entryValues="@array/listValues"
+     android:key="appdrawer"
+     android:summary="Choose your appdrawer grid size"
+     android:title="Appdrawer" />
+  
+  <ListPreference
+     android:entries="@array/panels"
+     android:entryValues="@array/panelvalues"
+     android:key="panels"
+     android:summary="Choose how many panels you want in the Sense Launcher"
+     android:title="Launcher panels" />
+  
+  
+ </PreferenceCategory>
+ 
+ <PreferenceCategory
+     android:title="More coming soon!">
+ </PreferenceCategory>
+</PreferenceScreen>
