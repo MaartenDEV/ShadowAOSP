@@ -43,6 +43,8 @@ import android.widget.TextView;
 public class Skins extends ListActivity {
 	String name;
 	
+	Boolean isInternetPresent = false;
+	ConnectionDetector cd;
 	
 	
 	
@@ -118,6 +120,10 @@ public class Skins extends ListActivity {
 			   String username = prefs.getString("username", "Shadow");
 		
 		setTitle(username + " News");
+		
+		cd = new ConnectionDetector(this);
+		isInternetPresent = cd.isConnectingToInternet();
+        if (isInternetPresent) {
 
 		ArrayList<HashMap<String, String>> menuItems = new ArrayList<HashMap<String, String>>();
 
@@ -287,6 +293,25 @@ public class Skins extends ListActivity {
 
 			}
 		});
+		
+        } else {
+        	
+        	AlertDialog.Builder nointernet = new AlertDialog.Builder(this);
+        	
+        	nointernet.setTitle("Not connected to internet")
+        	.setCancelable(false)
+        	.setMessage("I'm sorry, this app needs to connect to internet and you're not connected.")
+        	.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+        		public void onClick(DialogInterface dialog, int id) {
+        			
+        			finish();
+        			
+        		}
+        		
+        		
+        	})
+        	.show();
+        }
 	
 	}
 	
