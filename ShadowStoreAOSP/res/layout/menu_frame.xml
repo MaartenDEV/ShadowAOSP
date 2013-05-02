@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/row_title"
+        android:layout_width="270dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:padding="10dp"
+        android:gravity="left"
+        android:text="Large Text"
+        android:background="@drawable/button"
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
+</LinearLayout>

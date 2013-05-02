@@ -6,13 +6,17 @@ import java.util.List;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.slidingmenu.lib.SlidingMenu;
 
 
 
@@ -28,12 +32,11 @@ public class FilesActivity extends ListActivity {
 
 	 
 	 
+	    
 	 
 	 
 	 
-	 
-	 
-	 	
+	
 	 	
 	 
 
@@ -47,10 +50,20 @@ public class FilesActivity extends ListActivity {
 	        super.onCreate(savedInstanceState);
 
 	        setContentView(R.layout.activity_files);
+	        
+	        
+	        
+	        
+	        	
+	            	
+	            	
+	    			
+	    			
+	    			
 
 	        myPath = (TextView)findViewById(R.id.path);
 	        
-	        setTitle("Download files");
+
 
 	        getDir(root);
 

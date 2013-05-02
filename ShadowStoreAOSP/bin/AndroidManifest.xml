@@ -80,6 +80,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.maartenxda.shadowaosp.FilesActivity"
+            android:label="Files"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.maartenxda.shadowaosp.FilesActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.maartenxda.shadow.SitesList"
             android:label="SitesList" >
         </activity>

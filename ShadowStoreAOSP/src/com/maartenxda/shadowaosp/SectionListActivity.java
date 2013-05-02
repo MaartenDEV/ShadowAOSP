@@ -1,8 +1,7 @@
 package com.maartenxda.shadowaosp;
 
-import java.util.prefs.Preferences;
-
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +12,12 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+import com.github.espiandev.showcaseview.ShowcaseView;
+import com.slidingmenu.lib.SlidingMenu;
 
 /**
  * An activity representing a list of Sections. This activity has different
@@ -48,6 +53,84 @@ public class SectionListActivity extends FragmentActivity implements
     
     
     
+     
+     
+     Context context = this;
+     
+     View.OnClickListener about = new View.OnClickListener() {
+    	    public void onClick(View v) {
+    	      // MY QUESTION STARTS HERE!!!
+    	      // IF b1 do this
+    	      // IF b2 do this
+    	      // MY QUESTION ENDS HERE!!!
+    	    	SharedPreferences prefs = PreferenceManager
+    	    		    .getDefaultSharedPreferences(SectionListActivity.this);
+    	    		 
+    	    		   String username = prefs.getString("username", "Shadow");
+    	                
+    	            	AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(context);
+
+    	        		dlgAlert.setMessage(R.string.about_shadow);
+    	        		dlgAlert.setTitle("Hey there "+username +"!");
+    	        		dlgAlert.setPositiveButton("Go to the ROM's thread", new DialogInterface.OnClickListener() {
+    	        			public void onClick(DialogInterface dialog,int id) {
+    	        				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(""));
+    	        				startActivity(browserIntent);
+    	        			}
+    	        		});
+    	        		dlgAlert.setCancelable(true);
+    	        		dlgAlert.create().show();
+    	    }
+    	  };
+    	  
+    	  View.OnClickListener appreciation = new View.OnClickListener() {
+      	    public void onClick(View v) {
+      	    	AlertDialog.Builder dlgAlert1  = new AlertDialog.Builder(context);
+
+      			dlgAlert1.setMessage(R.string.appreciation);
+      			dlgAlert1.setTitle("Appreciation");
+      			dlgAlert1.setPositiveButton("Donate", new DialogInterface.OnClickListener() {
+      				public void onClick(DialogInterface dialog,int id) {
+      					Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MQHE27S38LEV2&lc=NL&item_name=XDA%20Developers&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
+      					startActivity(browserIntent);
+      				}
+      			});
+      			dlgAlert1.setCancelable(true);
+      			dlgAlert1.create().show();
+      	    }
+      	  };
+      	  
+      	View.OnClickListener devs = new View.OnClickListener() {
+      	    public void onClick(View v) {
+      	      intent(DevelopersActivity.class);
+      	    }
+      	  };
+    
+   
+    
+      	View.OnClickListener files = new View.OnClickListener() {
+      	    public void onClick(View v) {
+      	    	intent(FilesActivity.class);
+      	    }
+      	  };
+    
+      	View.OnClickListener personalize = new View.OnClickListener() {
+      	    public void onClick(View v) {
+      	    	Intent i = new Intent();
+      	        i.setAction(Intent.ACTION_VIEW);
+      	        i.setClassName("com.htc.home.personalize",
+      	                "com.htc.home.personalize.main.PersonalizeCarouselMainActivity");
+
+      	        startActivity(i);
+      	    }
+      	  };
+      	  
+      	View.OnClickListener prefs = new View.OnClickListener() {
+      	    public void onClick(View v) {
+      	    	intent(PreferencesActivity.class);
+      	    }
+      	  };
+    
     
     
     
@@ -61,98 +144,7 @@ public class SectionListActivity extends FragmentActivity implements
         	recreate();
             
         	return true;
-        case R.id.about:
-        	
-        	
-        	
-        	
-        	
-        	SharedPreferences prefs = PreferenceManager
-		    .getDefaultSharedPreferences(SectionListActivity.this);
-		 
-		   String username = prefs.getString("username", "Shadow");
-            
-        	AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
-
-    		dlgAlert.setMessage(R.string.about_shadow);
-    		dlgAlert.setTitle("Hey there "+username +"!");
-    		dlgAlert.setPositiveButton("Go to the ROM's thread", new DialogInterface.OnClickListener() {
-    			public void onClick(DialogInterface dialog,int id) {
-    				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(""));
-    				startActivity(browserIntent);
-    			}
-    		});
-    		dlgAlert.setCancelable(true);
-    		dlgAlert.create().show();
-        	
-            return true;
-            
-        case R.id.appreciation:
-        	
-        	AlertDialog.Builder dlgAlert1  = new AlertDialog.Builder(this);
-
-    		dlgAlert1.setMessage(R.string.appreciation);
-    		dlgAlert1.setTitle("Appreciation");
-    		dlgAlert1.setPositiveButton("Donate", new DialogInterface.OnClickListener() {
-    			public void onClick(DialogInterface dialog,int id) {
-    				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MQHE27S38LEV2&lc=NL&item_name=XDA%20Developers&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
-    				startActivity(browserIntent);
-    			}
-    		});
-    		dlgAlert1.setCancelable(true);
-    		dlgAlert1.create().show();
-        	
-            return true;
-            
-        case R.id.devs:
-        	
-        	intent(DevelopersActivity.class);
-	        return true;
-	       
-	        
-       
-	        
-	        
-	        
-	        
-	        
-	        
-        case R.id.files:
-
-        	
-        	
-        	intent(FilesActivity.class);
-	        
-	        
-	        
-	        return true;
-	        
-        case R.id.personalize:
-        	
-        	Intent i = new Intent();
-            i.setAction(Intent.ACTION_VIEW);
-            i.setClassName("com.htc.home.personalize",
-                    "com.htc.home.personalize.main.PersonalizeCarouselMainActivity");
-
-            startActivity(i);
-            
-            return true;
-	        
-        case R.id.prefs:
-        	
-        	intent(PreferencesActivity.class);
-        	
-        	
-        	
-        	return true;
         
-        
-	    
-	        
-        
-        
-        
-        	
         	
             
         default:
@@ -167,12 +159,89 @@ public class SectionListActivity extends FragmentActivity implements
     	
     	
     }
-	
-	
+	LinearLayout layout;	
+	Button button;
+	ShowcaseView sv;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_section_list);
+		layout = new LinearLayout(this);
+		layout.setOrientation(1);
+		
+		ShowcaseView.ConfigOptions co = new ShowcaseView.ConfigOptions();
+		co.hideOnClickOutside = true;
+		
+		button = new Button(this);
+		button.setWidth(390);
+		button.setOnClickListener(about);
+		button.setHeight(100);
+		button.setText("About");
+		button.setTextAppearance(this, android.R.style.TextAppearance_Large);
+		button.setBackgroundResource(R.drawable.button);
+		
+		Button appr = new Button(this);
+		appr.setWidth(390);
+		appr.setOnClickListener(appreciation);
+		appr.setHeight(100);
+		appr.setText("Appreciation");
+		appr.setTextAppearance(this, android.R.style.TextAppearance_Large);
+		appr.setBackgroundResource(R.drawable.button);
+		
+		Button members = new Button(this);
+		members.setWidth(390);
+		members.setOnClickListener(devs);
+		members.setHeight(100);
+		members.setText("Team members");
+		members.setTextAppearance(this, android.R.style.TextAppearance_Large);
+		members.setBackgroundResource(R.drawable.button);
+		
+		Button file = new Button(this);
+		file.setWidth(390);
+		file.setOnClickListener(files);
+		file.setHeight(100);
+		file.setText("Downloaded files");
+		file.setTextAppearance(this, android.R.style.TextAppearance_Large);
+		file.setBackgroundResource(R.drawable.button);
+		
+		Button personalizes = new Button(this);
+		personalizes.setWidth(390);
+		personalizes.setOnClickListener(personalize);
+		personalizes.setHeight(100);
+		personalizes.setText("Personalize");
+		personalizes.setTextAppearance(this, android.R.style.TextAppearance_Large);
+		personalizes.setBackgroundResource(R.drawable.button);
+
+		Button pref = new Button(this);
+		pref.setWidth(390);
+		pref.setOnClickListener(prefs);
+		pref.setHeight(100);
+		pref.setText("Preferences");
+		pref.setTextAppearance(this, android.R.style.TextAppearance_Large);
+		pref.setBackgroundResource(R.drawable.button);
+		
+		
+		layout.addView(button);
+		layout.addView(appr);
+		layout.addView(members);
+		layout.addView(file);
+		layout.addView(personalizes);
+		layout.addView(pref);
+		
+		sv = ShowcaseView.insertShowcaseView(file, this, "Swipable menu", "You can swipe from the left to the right to show the menu, in which you can choose what you want to do.", co);
+		sv.animateGesture(-200, 350, 400, 350);
+		
+		
+		SlidingMenu menu = new SlidingMenu(this);
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setShadowWidth(50);
+        menu.setFadeDegree(0.9f);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+        
+        
+        menu.setBehindWidth(400);
+        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+        menu.setMenu(layout);
 		
 		SharedPreferences prefs = PreferenceManager
 			    .getDefaultSharedPreferences(SectionListActivity.this);

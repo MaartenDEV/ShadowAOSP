@@ -13,6 +13,10 @@
         android:layout_centerVertical="true"
         android:text="@string/about_shadow" />
     
+    <Button
+        android:id="@+id/appr"
+        android:text=""/>
+    
     <ImageView
         android:src="@+drawable/bg"
         />
