@@ -1,6 +1,14 @@
 package com.maartenxda.shadowaosp;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,6 +52,8 @@ public class SectionListActivity extends FragmentActivity implements
 	 * device.
 	 */
 	private boolean mTwoPane;
+	
+	
 
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -169,8 +180,7 @@ public class SectionListActivity extends FragmentActivity implements
 		layout = new LinearLayout(this);
 		layout.setOrientation(1);
 		
-		ShowcaseView.ConfigOptions co = new ShowcaseView.ConfigOptions();
-		co.hideOnClickOutside = true;
+		
 		
 		button = new Button(this);
 		button.setWidth(390);
@@ -222,8 +232,22 @@ public class SectionListActivity extends FragmentActivity implements
 		layout.addView(personalizes);
 		layout.addView(pref);
 		
+		File file1 = new File("/data/data/com.maartenxda.shadowaosp/files/", "data.txt");
+		
+		if (file1.exists()) {
+		
+			
+		} else {
+		ShowcaseView.ConfigOptions co = new ShowcaseView.ConfigOptions();
+		co.hideOnClickOutside = true;
+		
 		sv = ShowcaseView.insertShowcaseView(file, this, "Swipable menu", "You can swipe from the left to the right to show the menu, in which you can choose what you want to do.", co);
 		sv.animateGesture(-200, 350, 400, 350);
+		
+		
+		
+		}
+		
 		
 		
 		SlidingMenu menu = new SlidingMenu(this);
@@ -243,6 +267,56 @@ public class SectionListActivity extends FragmentActivity implements
 			   String username = prefs.getString("username", "Shadow");
 		
 		setTitle(username + " Store");
+		
+		try { 
+		       // catches IOException below
+		       final String TESTSTRING = new String("Is created");
+
+		       /* We have to use the openFileOutput()-method
+		       * the ActivityContext provides, to
+		       * protect your file from others and
+		       * This is done for security-reasons.
+		       * We chose MODE_WORLD_READABLE, because
+		       *  we have nothing to hide in our file */             
+		       FileOutputStream fOut = openFileOutput("data.txt",
+		                                                            MODE_WORLD_READABLE);
+		       OutputStreamWriter osw = new OutputStreamWriter(fOut); 
+
+		       // Write the string to the file
+		       osw.write(TESTSTRING);
+
+		       /* ensure that everything is
+		        * really written out and close */
+		       osw.flush();
+		       osw.close();
+
+		//Reading the file back...
+
+		       /* We have to use the openFileInput()-method
+		        * the ActivityContext provides.
+		        * Again for security reasons with
+		        * openFileInput(...) */
+
+		        FileInputStream fIn = openFileInput("samplefile.txt");
+		        InputStreamReader isr = new InputStreamReader(fIn);
+
+		        /* Prepare a char-Array that will
+		         * hold the chars we read back in. */
+		        char[] inputBuffer = new char[TESTSTRING.length()];
+
+		        // Fill the Buffer with data from the file
+		        isr.read(inputBuffer);
+
+		        // Transform the chars to a String
+		        String readString = new String(inputBuffer);
+
+		        // Check if we read back the same chars that we had written out
+		        boolean isTheSame = TESTSTRING.equals(readString);
+
+		        Log.i("File Reading stuff", "success = " + isTheSame);
+
+		    } catch (IOException ioe) 
+		      {ioe.printStackTrace();}
 		
 
 		if (findViewById(R.id.section_detail_container) != null) {

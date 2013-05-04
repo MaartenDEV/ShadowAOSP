@@ -1,6 +1,7 @@
 package com.maartenxda.shadowaosp;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,8 +54,12 @@ public class SectionListFragment extends ListFragment {
 		 * Callback for when an item has been selected.
 		 */
 		public void onItemSelected(String id);
-	}
 
+		
+	}
+	
+
+	
 	/**
 	 * A dummy implementation of the {@link Callbacks} interface that does
 	 * nothing. Used only when this fragment is not attached to an activity.
@@ -63,6 +68,8 @@ public class SectionListFragment extends ListFragment {
 		@Override
 		public void onItemSelected(String id) {
 		}
+
+		
 	};
 
 	/**
