@@ -1,6 +1,7 @@
 package com.maartenxda.shadowaosp;
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -10,7 +11,7 @@ import android.preference.PreferenceActivity;
 
 public class PreferencesActivity extends PreferenceActivity implements OnPreferenceChangeListener, OnPreferenceClickListener {
 	
-	
+	CheckBoxPreference scrollbar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +21,8 @@ public class PreferencesActivity extends PreferenceActivity implements OnPrefere
 		setTitle("Preferences");
 		
 		
+		scrollbar = (CheckBoxPreference) findPreference("scrollbars");
 		
-	
 				
 		
 		
@@ -34,7 +35,15 @@ public class PreferencesActivity extends PreferenceActivity implements OnPrefere
 	}
 
 	@Override
-	public boolean onPreferenceClick(Preference arg0) {
+	public boolean onPreferenceClick(Preference pref) {
+		
+		
+		
+			
+			
+			
+		
+		
 		// TODO Auto-generated method stub
 		return false;
 	}

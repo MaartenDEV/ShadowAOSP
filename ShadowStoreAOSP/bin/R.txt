@@ -228,3 +228,4 @@ int xml developers 0x7f040001
 int xml general_prefs 0x7f040002
 int xml preferences 0x7f040003
 int xml prefs 0x7f040004
+int xml skins 0x7f040005

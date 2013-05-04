@@ -9,9 +9,12 @@ import org.w3c.dom.NodeList;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -59,7 +62,7 @@ public class AndroidXMLParsingActivity extends ListActivity {
         switch (item.getItemId()) {
         
         case R.id.refresh:
-        	recreate();
+        	new ParseXML().execute();
             
         	return true;
         
@@ -97,60 +100,10 @@ public class AndroidXMLParsingActivity extends ListActivity {
 		setContentView(R.layout.main);
 		
 		
-
-
-		ArrayList<HashMap<String, String>> menuItems = new ArrayList<HashMap<String, String>>();
-
-		XMLParser parser = new XMLParser();
-		String xml = parser.getXmlFromUrl(URL); // getting XML
-		Document doc = parser.getDomElement(xml); // getting DOM element
-
-		NodeList nl = doc.getElementsByTagName(KEY_ITEM);
-		// looping through all item nodes <item>
-		for (int i = 0; i < nl.getLength(); i++) {
-			// creating new HashMap
-			HashMap<String, String> map = new HashMap<String, String>();
-			Element e = (Element) nl.item(i);
-			// adding each child node to HashMap key => value
-			map.put(KEY_ID, parser.getValue(e, KEY_ID));
-			map.put(KEY_NAME, parser.getValue(e, KEY_NAME));
-			map.put(KEY_DATE, parser.getValue(e, KEY_DATE));
-			map.put(KEY_DESC, parser.getValue(e, KEY_DESC));
-
-			// adding HashList to ArrayList
-			menuItems.add(map);
-		}
-
-		// Adding menuItems to ListView
-		ListAdapter adapter = new SimpleAdapter(this, menuItems,
-				R.layout.list_item,
-				new String[] { KEY_NAME, KEY_DESC, KEY_DATE }, new int[] {
-						R.id.name, R.id.desciption, R.id.date });
-
-		setListAdapter(adapter);
-
-		// selecting single ListView item
-		ListView lv = getListView();
-
-		lv.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// getting values from selected ListItem
-				String name = ((TextView) view.findViewById(R.id.name)).getText().toString();
-				String date = ((TextView) view.findViewById(R.id.date)).getText().toString();
-				String description = ((TextView) view.findViewById(R.id.desciption)).getText().toString();
-				
-				// Starting new intent
-				Intent in = new Intent(getApplicationContext(), SingleMenuItemActivity.class);
-				in.putExtra(KEY_NAME, name);
-				in.putExtra(KEY_DATE, date);
-				in.putExtra(KEY_DESC, description);
-				startActivity(in);
-
-			}
-		});
+		new ParseXML().execute();
+		
+		
+		
         } else {
         	
         	AlertDialog.Builder nointernet = new AlertDialog.Builder(this);
@@ -174,4 +127,121 @@ public class AndroidXMLParsingActivity extends ListActivity {
         	
         }
 	}
+	
+	ListAdapter adapter;
+	
+	Context context = this;
+	
+private class ParseXML extends AsyncTask<Void, Void, Void> {
+		
+	
+	
+		
+		ProgressDialog loading;
+		
+		@Override
+        protected void onPreExecute() {
+            // pre execute logic
+            super.onPreExecute();
+            
+            loading = new ProgressDialog(context);
+            
+            
+            
+ 			
+            loading.setMessage("Loading...");
+ 			loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+ 			loading.setCancelable(false);
+            
+            
+            
+            
+            loading.show();
+            
+            
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            /*
+                        make connection & download XML here, 
+                        use your XML parser class object to parse the xml from here
+
+                        create ArrayList & etc. from here...
+
+                    */
+
+    		ArrayList<HashMap<String, String>> menuItems = new ArrayList<HashMap<String, String>>();
+
+    		XMLParser parser = new XMLParser();
+    		String xml = parser.getXmlFromUrl(URL); // getting XML
+    		Document doc = parser.getDomElement(xml); // getting DOM element
+
+    		NodeList nl = doc.getElementsByTagName(KEY_ITEM);
+    		// looping through all item nodes <item>
+    		for (int i = 0; i < nl.getLength(); i++) {
+    			// creating new HashMap
+    			HashMap<String, String> map = new HashMap<String, String>();
+    			Element e = (Element) nl.item(i);
+    			// adding each child node to HashMap key => value
+    			map.put(KEY_ID, parser.getValue(e, KEY_ID));
+    			map.put(KEY_NAME, parser.getValue(e, KEY_NAME));
+    			map.put(KEY_DATE, parser.getValue(e, KEY_DATE));
+    			map.put(KEY_DESC, parser.getValue(e, KEY_DESC));
+
+    			// adding HashList to ArrayList
+    			menuItems.add(map);
+    		}
+
+    		// Adding menuItems to ListView
+    		adapter = new SimpleAdapter(context, menuItems,
+    				R.layout.list_item,
+    				new String[] { KEY_NAME, KEY_DESC, KEY_DATE }, new int[] {
+    						R.id.name, R.id.desciption, R.id.date });
+    		
+    		ListView lv = getListView();
+
+    		lv.setOnItemClickListener(new OnItemClickListener() {
+
+    			@Override
+    			public void onItemClick(AdapterView<?> parent, View view,
+    					int position, long id) {
+    				// getting values from selected ListItem
+    				String name = ((TextView) view.findViewById(R.id.name)).getText().toString();
+    				String date = ((TextView) view.findViewById(R.id.date)).getText().toString();
+    				String description = ((TextView) view.findViewById(R.id.desciption)).getText().toString();
+    				
+    				// Starting new intent
+    				Intent in = new Intent(getApplicationContext(), SingleMenuItemActivity.class);
+    				in.putExtra(KEY_NAME, name);
+    				in.putExtra(KEY_DATE, date);
+    				in.putExtra(KEY_DESC, description);
+    				startActivity(in);
+
+    			}
+    		});
+        	
+        	
+        	
+        	
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            // postexecute logic
+            super.onPostExecute(result);
+            
+            loading.dismiss();
+            
+         // Adding menuItems to ListView
+    		
+    		
+    		setListAdapter(adapter);
+        }
+
+        
+
+    }
 }

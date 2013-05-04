@@ -403,6 +403,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int general_prefs=0x7f040002;
         public static final int preferences=0x7f040003;
         public static final int prefs=0x7f040004;
+        public static final int skins=0x7f040005;
     }
     public static final class styleable {
         /** Attributes that can be used with a CustomTheme.

@@ -91,6 +91,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.maartenxda.shadowaosp.SkinsPreferences"
+            android:label="SkinsPrefs"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.maartenxda.shadowaosp.SkinsPreferences" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.maartenxda.shadow.SitesList"
             android:label="SitesList" >
         </activity>
