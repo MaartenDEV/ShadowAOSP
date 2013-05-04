@@ -1,6 +1,8 @@
 package com.maartenxda.shadowaosp;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.w3c.dom.Document;
@@ -8,6 +10,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -72,6 +75,8 @@ public class AndroidXMLParsingActivity extends ListActivity {
         }
     }
     
+    
+    
     public void intent (Class activity) {
     	
     	Intent intent=new Intent(this, activity);
@@ -83,6 +88,10 @@ public class AndroidXMLParsingActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		
+		
+		
 		
 		SharedPreferences prefs = PreferenceManager
 			    .getDefaultSharedPreferences(AndroidXMLParsingActivity.this);
@@ -110,7 +119,7 @@ public class AndroidXMLParsingActivity extends ListActivity {
         	
         	nointernet.setTitle("Not connected to internet")
         	.setCancelable(false)
-        	.setMessage("I'm sorry, this app needs to connect to internet and you're not connected.")
+        	.setMessage("I'm sorry, this app needs to connect to internet. Please try again when you have an internet connection.")
         	.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
         		public void onClick(DialogInterface dialog, int id) {
         			
@@ -134,6 +143,7 @@ public class AndroidXMLParsingActivity extends ListActivity {
 	
 private class ParseXML extends AsyncTask<Void, Void, Void> {
 		
+	String date;
 	
 	
 		
@@ -208,7 +218,7 @@ private class ParseXML extends AsyncTask<Void, Void, Void> {
     					int position, long id) {
     				// getting values from selected ListItem
     				String name = ((TextView) view.findViewById(R.id.name)).getText().toString();
-    				String date = ((TextView) view.findViewById(R.id.date)).getText().toString();
+    				date = ((TextView) view.findViewById(R.id.date)).getText().toString();
     				String description = ((TextView) view.findViewById(R.id.desciption)).getText().toString();
     				
     				// Starting new intent
@@ -234,6 +244,8 @@ private class ParseXML extends AsyncTask<Void, Void, Void> {
             super.onPostExecute(result);
             
             loading.dismiss();
+            
+            
             
          // Adding menuItems to ListView
     		

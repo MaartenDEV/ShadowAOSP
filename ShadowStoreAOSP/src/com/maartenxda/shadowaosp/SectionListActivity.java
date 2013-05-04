@@ -178,7 +178,6 @@ public class SectionListActivity extends FragmentActivity implements
 		button.setHeight(100);
 		button.setText("About");
 		button.setTextAppearance(this, android.R.style.TextAppearance_Large);
-		button.setBackgroundResource(R.drawable.button);
 		
 		Button appr = new Button(this);
 		appr.setWidth(390);
@@ -186,7 +185,6 @@ public class SectionListActivity extends FragmentActivity implements
 		appr.setHeight(100);
 		appr.setText("Appreciation");
 		appr.setTextAppearance(this, android.R.style.TextAppearance_Large);
-		appr.setBackgroundResource(R.drawable.button);
 		
 		Button members = new Button(this);
 		members.setWidth(390);
@@ -194,7 +192,6 @@ public class SectionListActivity extends FragmentActivity implements
 		members.setHeight(100);
 		members.setText("Team members");
 		members.setTextAppearance(this, android.R.style.TextAppearance_Large);
-		members.setBackgroundResource(R.drawable.button);
 		
 		Button file = new Button(this);
 		file.setWidth(390);
@@ -202,7 +199,6 @@ public class SectionListActivity extends FragmentActivity implements
 		file.setHeight(100);
 		file.setText("Downloaded files");
 		file.setTextAppearance(this, android.R.style.TextAppearance_Large);
-		file.setBackgroundResource(R.drawable.button);
 		
 		Button personalizes = new Button(this);
 		personalizes.setWidth(390);
@@ -210,7 +206,6 @@ public class SectionListActivity extends FragmentActivity implements
 		personalizes.setHeight(100);
 		personalizes.setText("Personalize");
 		personalizes.setTextAppearance(this, android.R.style.TextAppearance_Large);
-		personalizes.setBackgroundResource(R.drawable.button);
 
 		Button pref = new Button(this);
 		pref.setWidth(390);
@@ -218,7 +213,6 @@ public class SectionListActivity extends FragmentActivity implements
 		pref.setHeight(100);
 		pref.setText("Preferences");
 		pref.setTextAppearance(this, android.R.style.TextAppearance_Large);
-		pref.setBackgroundResource(R.drawable.button);
 		
 		
 		layout.addView(button);

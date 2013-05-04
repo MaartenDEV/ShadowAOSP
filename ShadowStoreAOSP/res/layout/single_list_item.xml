@@ -8,7 +8,7 @@
   <TextView android:id="@+id/name_label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="25sp"
             android:textStyle="bold"
             android:paddingTop="10dip"
@@ -18,13 +18,13 @@
   <TextView android:id="@+id/description_label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#121212"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:layout_marginLeft="6dip" />
   <!-- Price Label -->
   <TextView android:id="@+id/date_label"
       		android:layout_width="fill_parent"
       		android:layout_height="wrap_content"
-      		android:textColor="#6D7B8D" 
+      		android:textColor="#FFFFFF" 
       		android:textStyle="bold"/>
 </LinearLayout>

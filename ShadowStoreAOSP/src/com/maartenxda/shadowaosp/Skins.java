@@ -134,7 +134,7 @@ public class Skins extends ListActivity {
         	
         	nointernet.setTitle("Not connected to internet")
         	.setCancelable(false)
-        	.setMessage("I'm sorry, this app needs to connect to internet and you're not connected.")
+        	.setMessage("I'm sorry, this app needs to connect to internet. Please try again when you have an internet connection.")
         	.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
         		public void onClick(DialogInterface dialog, int id) {
         			
@@ -413,7 +413,44 @@ public class Skins extends ListActivity {
     						
     						
     						downloaded.show();
-    					}}});
+    					} else {
+    						
+    						AlertDialog.Builder download = new AlertDialog.Builder(context);
+    						
+    						download.setTitle(name);
+    						download.setMessage("Do you want to download '"+name+"' now?");
+    						download.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+    							@Override
+    							public void onClick(DialogInterface dialog, int id) {
+    								
+    								new DownloadMapAsync().execute(url);
+    								
+    								
+    							}
+    							
+    							
+    							
+    							
+    						});
+    						download.setNegativeButton("No", new DialogInterface.OnClickListener() {
+    							@Override
+    							public void onClick(DialogInterface dialog, int id) {
+    								
+    								
+    								
+    							}
+    							
+    							
+    							
+    						});
+    						download.show();
+    						
+    						
+    						
+    					}
+    					
+    				
+    				}});
         	
             return null;
 
